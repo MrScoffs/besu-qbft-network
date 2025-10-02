@@ -40,7 +40,7 @@ services:
     command: >
       --data-path=/opt/besu/data
       --genesis-file=/opt/besu/genesis.json
-      --bootnodes=enode://cf7901298c978c69ead154eb04fa92cdf17a271b4847eb0fc8d160fe9e364d08528af8892180b10628fb0fda026dac09f3de5d09618e77aa320c88c653c21ac1@192.168.18.10:30303,enode://9947999005fc34806b5c50fd1efaa75936c8489e93cd7f1c85dd051f68ff402f3526e693fd2c97e83025171bd8aa5bf435fb3a0ac6e661853569267830739063@192.168.18.10:30305
+      --bootnodes=enode://d9f9e34f10213a92631746a632cfa2eb7c9acbe8189bc1a263a48fba660215e0918a13b7e2c5876f151d87119012b971bf9d5eb198c9a4f73089767d491e3d65@127.0.0.1:30303,enode://3bd77a3c76fc3a536388bf82408a202e0cd3a423541bedae5b0fdc848e4d006b3566f13021ccf4760e82fe31c36c6625e48c3b9c489bca0adb976e5d8278c70c@127.0.0.1:30305
       --rpc-http-enabled
       --rpc-http-api=ETH,NET,QBFT,ADMIN
       --host-allowlist="*"
@@ -105,7 +105,7 @@ services:
     command: >
       --data-path=/opt/besu/data
       --genesis-file=/opt/besu/genesis.json
-      --bootnodes=enode://cf7901298c978c69ead154eb04fa92cdf17a271b4847eb0fc8d160fe9e364d08528af8892180b10628fb0fda026dac09f3de5d09618e77aa320c88c653c21ac1@192.168.18.10:30303,enode://9947999005fc34806b5c50fd1efaa75936c8489e93cd7f1c85dd051f68ff402f3526e693fd2c97e83025171bd8aa5bf435fb3a0ac6e661853569267830739063@192.168.18.10:30305
+      --bootnodes=enode://d9f9e34f10213a92631746a632cfa2eb7c9acbe8189bc1a263a48fba660215e0918a13b7e2c5876f151d87119012b971bf9d5eb198c9a4f73089767d491e3d65@127.0.0.1:30303,enode://3bd77a3c76fc3a536388bf82408a202e0cd3a423541bedae5b0fdc848e4d006b3566f13021ccf4760e82fe31c36c6625e48c3b9c489bca0adb976e5d8278c70c@127.0.0.1:30305
       --rpc-http-enabled
       --rpc-http-api=ETH,NET,QBFT,ADMIN
       --host-allowlist="*"
@@ -138,7 +138,7 @@ services:
     command: >
       --data-path=/opt/besu/data
       --genesis-file=/opt/besu/genesis.json
-      --bootnodes=enode://cf7901298c978c69ead154eb04fa92cdf17a271b4847eb0fc8d160fe9e364d08528af8892180b10628fb0fda026dac09f3de5d09618e77aa320c88c653c21ac1@192.168.18.10:30303,enode://9947999005fc34806b5c50fd1efaa75936c8489e93cd7f1c85dd051f68ff402f3526e693fd2c97e83025171bd8aa5bf435fb3a0ac6e661853569267830739063@192.168.18.10:30305
+      --bootnodes=enode://d9f9e34f10213a92631746a632cfa2eb7c9acbe8189bc1a263a48fba660215e0918a13b7e2c5876f151d87119012b971bf9d5eb198c9a4f73089767d491e3d65@127.0.0.1:30303,enode://3bd77a3c76fc3a536388bf82408a202e0cd3a423541bedae5b0fdc848e4d006b3566f13021ccf4760e82fe31c36c6625e48c3b9c489bca0adb976e5d8278c70c@127.0.0.1:30305
       --rpc-http-enabled
       --rpc-http-api=ETH,NET,QBFT,ADMIN
       --host-allowlist="*"
@@ -171,7 +171,7 @@ services:
     command: >
       --data-path=/opt/besu/data
       --genesis-file=/opt/besu/genesis.json
-      --bootnodes=enode://cf7901298c978c69ead154eb04fa92cdf17a271b4847eb0fc8d160fe9e364d08528af8892180b10628fb0fda026dac09f3de5d09618e77aa320c88c653c21ac1@192.168.18.10:30303,enode://9947999005fc34806b5c50fd1efaa75936c8489e93cd7f1c85dd051f68ff402f3526e693fd2c97e83025171bd8aa5bf435fb3a0ac6e661853569267830739063@192.168.18.10:30305
+      --bootnodes=enode://d9f9e34f10213a92631746a632cfa2eb7c9acbe8189bc1a263a48fba660215e0918a13b7e2c5876f151d87119012b971bf9d5eb198c9a4f73089767d491e3d65@127.0.0.1:30303,enode://3bd77a3c76fc3a536388bf82408a202e0cd3a423541bedae5b0fdc848e4d006b3566f13021ccf4760e82fe31c36c6625e48c3b9c489bca0adb976e5d8278c70c@127.0.0.1:30305
       --rpc-http-enabled
       --rpc-http-api=ETH,NET,QBFT,ADMIN
       --host-allowlist="*"

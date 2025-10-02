@@ -1,7 +1,22 @@
-networkFiles/*
-*.tar.gz 
-besu-*/
-jdk-*/
-*.jfr
-genesis.json
+# Diretórios de nós (dados sensíveis)
+Node-*/
 Permissioned-Network/
+
+# Arquivos gerados
+networkFiles/
+permissions_config.toml
+genesis.json
+node-keys.txt
+extract-enodes.sh
+setup-nodes.sh
+
+# Backups
+*.backup
+
+# Java e Besu baixados
+jdk-*/
+besu-*/
+*.tar.gz
+
+# Docker
+*.log
