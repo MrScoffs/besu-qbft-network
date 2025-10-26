@@ -73,17 +73,17 @@ while true; do
 
     # Cabeçalho
     echo -e "${CYAN}${BOLD}════════════════════════════════════════════════════════════════════════════${NC}"
-    echo -e "${CYAN}${BOLD}                    🔗 BESU QBFT NETWORK DASHBOARD                          ${NC}"
+    echo -e "${CYAN}${BOLD}                     BESU QBFT NETWORK DASHBOARD                          ${NC}"
     echo -e "${CYAN}${BOLD}════════════════════════════════════════════════════════════════════════════${NC}"
     echo ""
 
     # Timestamp
-    echo -e "${YELLOW}⏰ Última atualização: $(date '+%Y-%m-%d %H:%M:%S')${NC}"
+    echo -e "${YELLOW} Última atualização: $(date '+%Y-%m-%d %H:%M:%S')${NC}"
     echo ""
 
     # Status dos containers
     echo -e "${BLUE}${BOLD}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-    echo -e "${BLUE}${BOLD}📦 STATUS DOS CONTAINERS${NC}"
+    echo -e "${BLUE}${BOLD} STATUS DOS CONTAINERS${NC}"
     echo -e "${BLUE}${BOLD}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo ""
 
@@ -109,7 +109,7 @@ while true; do
     # Informações da rede
     echo ""
     echo -e "${BLUE}${BOLD}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-    echo -e "${BLUE}${BOLD}🌐 INFORMAÇÕES DA REDE${NC}"
+    echo -e "${BLUE}${BOLD} INFORMAÇÕES DA REDE${NC}"
     echo -e "${BLUE}${BOLD}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo ""
 
@@ -165,7 +165,7 @@ while true; do
     # Consenso QBFT
     echo ""
     echo -e "${BLUE}${BOLD}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-    echo -e "${BLUE}${BOLD}⚙️  CONSENSO QBFT${NC}"
+    echo -e "${BLUE}${BOLD}  CONSENSO QBFT${NC}"
     echo -e "${BLUE}${BOLD}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo ""
 
@@ -191,7 +191,7 @@ while true; do
     # Estatísticas de rede
     echo ""
     echo -e "${BLUE}${BOLD}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-    echo -e "${BLUE}${BOLD}📊 ESTATÍSTICAS${NC}"
+    echo -e "${BLUE}${BOLD} ESTATÍSTICAS${NC}"
     echo -e "${BLUE}${BOLD}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo ""
 
@@ -276,7 +276,7 @@ while true; do
     # Comandos úteis
     echo ""
     echo -e "${BLUE}${BOLD}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-    echo -e "${BLUE}${BOLD}💡 COMANDOS ÚTEIS${NC}"
+    echo -e "${BLUE}${BOLD} COMANDOS ÚTEIS${NC}"
     echo -e "${BLUE}${BOLD}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo ""
     echo -e " ${CYAN}Ver logs de um nó:${NC}        docker logs -f node1"

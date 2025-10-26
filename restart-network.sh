@@ -15,7 +15,7 @@ NC='\033[0m' # No Color
 
 echo ""
 echo -e "${BLUE}=========================================${NC}"
-echo -e "${BLUE}🔄 RESTART INTELIGENTE DA REDE BESU${NC}"
+echo -e "${BLUE} RESTART INTELIGENTE DA REDE BESU${NC}"
 echo -e "${BLUE}=========================================${NC}"
 echo ""
 
@@ -53,7 +53,7 @@ wait_with_spinner() {
 
 # 1. Parar a rede
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${YELLOW}1️⃣  PARANDO A REDE${NC}"
+echo -e "${YELLOW}     PARANDO A REDE${NC}"
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 
@@ -82,7 +82,7 @@ fi
 # 3. Validar configurações
 echo ""
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${YELLOW}2️⃣  VALIDANDO CONFIGURAÇÕES${NC}"
+echo -e "${YELLOW}     VALIDANDO CONFIGURAÇÕES${NC}"
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 
@@ -106,7 +106,7 @@ fi
 # 4. Verificar rede Docker
 echo ""
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${YELLOW}3️⃣  VERIFICANDO REDE DOCKER${NC}"
+echo -e "${YELLOW}     VERIFICANDO REDE DOCKER${NC}"
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 
@@ -121,7 +121,7 @@ fi
 # 5. Subir a rede
 echo ""
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${YELLOW}4️⃣  INICIANDO A REDE${NC}"
+echo -e "${YELLOW}    INICIANDO A REDE${NC}"
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 
@@ -133,7 +133,7 @@ echo ""
 
 # 6. Aguardar inicialização
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${YELLOW}5️⃣  AGUARDANDO INICIALIZAÇÃO${NC}"
+echo -e "${YELLOW}     AGUARDANDO INICIALIZAÇÃO${NC}"
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 
@@ -147,7 +147,7 @@ echo -ne "\r  Aguardando... Concluído!           \n"
 # 7. Monitorar status dos containers
 echo ""
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${YELLOW}6️⃣  STATUS DOS CONTAINERS${NC}"
+echo -e "${YELLOW}     STATUS DOS CONTAINERS${NC}"
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 
@@ -178,7 +178,7 @@ log_info "Nós saudáveis: $healthy_nodes/6"
 if [ $healthy_nodes -lt 6 ]; then
     echo ""
     echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-    echo -e "${YELLOW}⚠️  VERIFICANDO LOGS DE ERRO${NC}"
+    echo -e "${YELLOW}   VERIFICANDO LOGS DE ERRO${NC}"
     echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo ""
 
@@ -196,7 +196,7 @@ fi
 # 9. Testar conectividade
 echo ""
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${YELLOW}7️⃣  TESTANDO CONECTIVIDADE${NC}"
+echo -e "${YELLOW}   TESTANDO CONECTIVIDADE${NC}"
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 
@@ -228,7 +228,7 @@ log_info "Testes de conectividade: $successful_tests/6 bem-sucedidos"
 # 10. Verificar peer count
 echo ""
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${YELLOW}8️⃣  VERIFICANDO PEERS${NC}"
+echo -e "${YELLOW}    VERIFICANDO PEERS${NC}"
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 
@@ -260,7 +260,7 @@ done
 # Resumo final
 echo ""
 echo -e "${BLUE}=========================================${NC}"
-echo -e "${BLUE}📊 RESUMO DO RESTART${NC}"
+echo -e "${BLUE}  RESUMO DO RESTART${NC}"
 echo -e "${BLUE}=========================================${NC}"
 echo ""
 

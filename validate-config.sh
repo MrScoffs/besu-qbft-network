@@ -6,7 +6,7 @@
 set -e
 
 echo "========================================="
-echo "🔍 VALIDAÇÃO DE CONFIGURAÇÃO BESU QBFT"
+echo " VALIDAÇÃO DE CONFIGURAÇÃO BESU QBFT"
 echo "========================================="
 echo ""
 
@@ -34,7 +34,7 @@ check_warn() {
     ((warnings++))
 }
 
-echo "📋 1. Verificando estrutura de diretórios..."
+echo "  1. Verificando estrutura de diretórios..."
 echo "-------------------------------------------"
 
 for i in {1..6}; do
@@ -51,7 +51,7 @@ for i in {1..6}; do
 done
 
 echo ""
-echo "🔑 2. Extraindo chaves públicas dos nós..."
+echo "  2. Extraindo chaves públicas dos nós..."
 echo "-------------------------------------------"
 
 declare -A node_pubkeys
@@ -67,7 +67,7 @@ for i in {1..6}; do
 done
 
 echo ""
-echo "🔐 3. Validando permissions_config.toml dos nós..."
+echo "  3. Validando permissions_config.toml dos nós..."
 echo "-------------------------------------------"
 
 # Ler o primeiro arquivo como referência
@@ -94,7 +94,7 @@ for i in {2..6}; do
 done
 
 echo ""
-echo "🌐 4. Validando enodes em permissions_config.toml..."
+echo "  4. Validando enodes em permissions_config.toml..."
 echo "-------------------------------------------"
 
 # Extrair enodes do arquivo de permissões
@@ -144,7 +144,7 @@ while IFS= read -r enode; do
 done <<< "$perm_enodes"
 
 echo ""
-echo "🐳 5. Validando bootnodes em docker-compose.yaml..."
+echo "  5. Validando bootnodes em docker-compose.yaml..."
 echo "-------------------------------------------"
 
 if [ ! -f "docker-compose.yaml" ]; then
@@ -177,7 +177,7 @@ else
 fi
 
 echo ""
-echo "📊 6. Validando accounts-allowlist..."
+echo " 6. Validando accounts-allowlist..."
 echo "-------------------------------------------"
 
 accounts=$(grep -oP 'accounts-allowlist=\[\K[^\]]+' "$reference_file" | tr -d '"' | tr ',' '\n' | sort)
@@ -199,7 +199,7 @@ echo "$accounts" | while read -r account; do
 done
 
 echo ""
-echo "🔧 7. Validando configuração de rede Docker..."
+echo "  7. Validando configuração de rede Docker..."
 echo "-------------------------------------------"
 
 # Verificar network_mode
@@ -223,7 +223,7 @@ done
 
 echo ""
 echo "========================================="
-echo "📈 RESUMO DA VALIDAÇÃO"
+echo " RESUMO DA VALIDAÇÃO"
 echo "========================================="
 echo ""
 
