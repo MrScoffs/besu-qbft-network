@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 # Copiar a JDK e o Besu para a imagem
-COPY jdk-21.0.8 /opt/jdk
+COPY jdk-21.0.9 /opt/jdk
 COPY besu-25.9.0 /opt/besu
 
 # Configurar variáveis de ambiente

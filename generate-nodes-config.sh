@@ -1,73 +1,94 @@
 #!/bin/bash
 
-# === CONFIGURÁVEIS ===
-BASE_DIR="$(pwd)"  # Diretório atual
-GENESIS_DIR="$BASE_DIR/networkFiles/genesis.json"
-KEYS_DIR="$BASE_DIR/networkFiles/keys"
-OUTPUT_DIR="$BASE_DIR/Permissioned-Network"
-IP="127.0.0.1" # <<<<<<<< Edite o IP aqui
-START_PORT=30303
+echo "========================================"
+echo "Gerando Configuração dos Nós"
+echo "========================================"
 
-# Garante que as pastas existem
-mkdir -p "$OUTPUT_DIR"
+# Criar diretório principal
+mkdir -p Permissioned-Network
 
-# Limpa possíveis arquivos antigos
-rm -f "$KEYS_DIR/.env"
+# Copiar genesis.json
+cp genesis.json Permissioned-Network/
 
+# Obter lista de endereços (nomes das pastas em networkFiles/keys)
+nodes=($(ls networkFiles/keys/ | grep "^0x"))
 
-# === GERA LISTA DE IDENTIFICADORES ===
-cd "$KEYS_DIR" || exit 1
-ls | grep 0x > .env
+if [ ${#nodes[@]} -ne 6 ]; then
+  echo "❌ Erro: Esperado 6 nós, encontrado ${#nodes[@]}"
+  exit 1
+fi
 
-# === VARIÁVEIS DE ACUMULAÇÃO ===
-accounts_allowlist=""
-nodes_allowlist=""
-node_index=1
-port=$START_PORT
-
-while IFS= read -r identifier; do
-    account_id="$identifier"
-
-    # Lê o conteúdo do key.pub (removendo 0x do início)
-    pub_key=$(<"$identifier/key.pub")
-    pub_key=${pub_key#0x}
-
-    # Monta enode string
-    enode="enode://$pub_key@$IP:$port"
-
-    # Adiciona vírgulas se necessário
-    if [ $node_index -gt 1 ]; then
-        accounts_allowlist+=","
-        nodes_allowlist+=","
-    fi
-
-    accounts_allowlist+="\"$account_id\""
-    nodes_allowlist+="\"$enode\""
-
-    # Cria diretório de destino
-    NODE_DIR="$OUTPUT_DIR/Node-$node_index/data"
-    mkdir -p "$NODE_DIR"
-
-    # Copia chaves
-    cp "$identifier/key" "$NODE_DIR/key"
-    cp "$identifier/key.pub" "$NODE_DIR/key.pub"
-
-    node_index=$((node_index+1))
-    port=$((port+1))
-done < .env
-
-# === CRIA ARQUIVO permissions_config.toml ===
-PERMISSIONS_CONFIG_PATH="$OUTPUT_DIR/permissions_config.toml"
-
-cat <<EOF > "$PERMISSIONS_CONFIG_PATH"
-nodes-allowlist=[$nodes_allowlist]
-accounts-allowlist=[$accounts_allowlist]
-EOF
-
-# === COPIA permissions_config.toml PARA CADA NÓ ===
-for i in $(seq 1 $((node_index-1))); do
-    cp "$PERMISSIONS_CONFIG_PATH" "$OUTPUT_DIR/Node-$i/data/"
+echo ""
+echo "📋 Nós encontrados:"
+for i in "${!nodes[@]}"; do
+  echo "  Node-$((i+1)): ${nodes[$i]}"
 done
 
-echo "Arquivo permissions_config.toml criado!"
-echo "Chaves e permissões copiadas para cada nó!"
+echo ""
+echo "🔑 Extraindo chaves públicas..."
+
+# Array para armazenar enodes
+declare -a enodes
+declare -a accounts
+
+# Extrair chaves públicas e criar enodes
+for i in "${!nodes[@]}"; do
+  node_num=$((i+1))
+  address="${nodes[$i]}"
+  pub_key=$(cat "networkFiles/keys/$address/key.pub" | sed 's/^0x//')
+  
+  # Portas P2P: 30303, 30304, ..., 30308
+  p2p_port=$((30302 + node_num))
+  
+  # Criar enode (usando nomes de containers para bridge network)
+  enode="enode://${pub_key}@node${node_num}:${p2p_port}"
+  enodes+=("\"$enode\"")
+  accounts+=("\"$address\"")
+  
+  echo "  ✓ Node-${node_num}: ${pub_key:0:16}...@node${node_num}:${p2p_port}"
+done
+
+echo ""
+echo "📝 Criando permissions_config.toml..."
+
+# Criar arquivo permissions_config.toml
+cat > permissions_config.toml << PERM_EOF
+nodes-allowlist=[$(IFS=,; echo "${enodes[*]}")]
+
+accounts-allowlist=[$(IFS=,; echo "${accounts[*]}")]
+PERM_EOF
+
+echo "✓ Arquivo permissions_config.toml criado"
+
+echo ""
+echo "📂 Criando estrutura de diretórios..."
+
+# Criar estrutura para cada nó
+for i in "${!nodes[@]}"; do
+  node_num=$((i+1))
+  address="${nodes[$i]}"
+  node_dir="Permissioned-Network/Node-${node_num}"
+  
+  echo "  Criando Node-${node_num}..."
+  
+  mkdir -p "$node_dir/data"
+  
+  # Copiar chaves
+  cp "networkFiles/keys/$address/key" "$node_dir/data/"
+  cp "networkFiles/keys/$address/key.pub" "$node_dir/data/"
+  
+  # Copiar permissions
+  cp "permissions_config.toml" "$node_dir/data/"
+  
+  echo "    ✓ Chaves copiadas"
+  echo "    ✓ Permissões configuradas"
+done
+
+echo ""
+echo "✅ Configuração concluída!"
+echo ""
+echo "Estrutura criada:"
+tree -L 3 Permissioned-Network/ 2>/dev/null || find Permissioned-Network/ -maxdepth 3
+
+echo ""
+echo "========================================"
