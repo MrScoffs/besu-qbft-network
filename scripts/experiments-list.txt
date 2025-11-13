@@ -1,0 +1,37 @@
+# ==========================================
+# Lista de experimentos a executar
+# Formato: nodes blocktime consensus version
+# ==========================================
+
+# Baseline (configuracao atual)
+6 5 qbft 25.10.0
+
+# Variar numero de nos (mantendo outros parametros)
+4 5 qbft 25.10.0
+8 5 qbft 25.10.0
+10 5 qbft 25.10.0
+
+# Variar tempo de bloco (mantendo outros parametros)
+6 2 qbft 25.10.0
+6 10 qbft 25.10.0
+
+# Variar consenso (mantendo outros parametros)
+6 5 ibft 25.10.0
+
+# Variar versao Besu (mantendo outros parametros)
+# 6 5 qbft 25.9.0  # REMOVIDA - problemas com WebSocket
+6 5 qbft 24.7.0
+
+# ==========================================
+# Experimentos adicionais (opcional)
+# Descomente se quiser testar combinacoes
+# ==========================================
+
+# 4 2 qbft 25.10.0
+# 4 10 qbft 25.10.0
+# 8 2 qbft 25.10.0
+# 8 10 qbft 25.10.0
+# 10 2 qbft 25.10.0
+# 10 10 qbft 25.10.0
+# 6 5 ibft 25.9.0
+# 6 5 ibft 24.7.0
