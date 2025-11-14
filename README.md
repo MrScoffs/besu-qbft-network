@@ -288,10 +288,10 @@ cd scripts/
 ```
 
 O script run-experiment.sh realiza automaticamente:
-1. Limpeza completa da rede anterior (para evitar vies)
+1. Limpeza completa da rede anterior 
 2. Geracao de novo genesis com parametros especificados
 3. Configuracao e inicializacao dos nos
-4. Aguardo de 60 segundos para estabilizacao da rede (reduz vies computacional)
+4. Aguardo de 90 segundos para estabilizacao da rede 
 5. Implantacao automatica do contrato Simple
 6. Atualizacao do networkconfig.json com endereco do novo contrato
 7. Execucao dos benchmarks do Caliper
@@ -309,7 +309,7 @@ cd scripts/
 O script ira:
 1. Ler experiments-list.txt
 2. Executar cada experimento sequencialmente
-3. Limpar completamente a rede entre experimentos (pra evitar vies)
+3. Limpar completamente a rede entre experimentos 
 4. Salvar resultados em diretorios organizados
 
 ### Resultados
